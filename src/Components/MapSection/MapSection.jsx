@@ -1,21 +1,39 @@
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import axios from 'axios';
 
 const MapSection = () => {
-  const position = [51.505, -0.09]; // Replace with the hotel's actual coordinates
+  const [locations, setLocations] = useState([]);
+  console.log(locations)
+
+  useEffect(() => {
+    const fetchHotelLocations = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/hotel-locations');
+        setLocations(response.data);
+      } catch (error) {
+        console.error('Error fetching hotel locations:', error);
+      }
+    };
+
+    fetchHotelLocations();
+  }, []);
 
   return (
     <div className="map-section w-full h-96 mt-10">
-      <MapContainer center={position} zoom={13} scrollWheelZoom={false} className="w-full h-full">
+      <MapContainer center={[0, 0]} zoom={2} scrollWheelZoom={false} className="w-full h-full">
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Marker position={position}>
-          <Popup>
-            Our Hotel Location
-          </Popup>
-        </Marker>
+        {locations.map((location, index) => (
+          <Marker key={index} position={[location.latitude, location.longitude]}>
+            <Popup>
+              {location.name}
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </div>
   );
