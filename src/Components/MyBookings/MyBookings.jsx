@@ -112,6 +112,7 @@ const MyBookingsPage = () => {
         rating,
         comment: reviewText,
         timestamp: new Date().toISOString(), // Add timestamp here
+        profilePic: user.photoURL, // Replace with logged-in user
       };
       try {
         const response = await fetch(`http://localhost:5000/rooms/${roomId}/reviews`, {
