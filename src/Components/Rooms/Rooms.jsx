@@ -11,7 +11,7 @@ const RoomsPage = () => {
 
   const fetchRooms = async () => {
     const response = await fetch(
-      `http://localhost:5000/rooms?minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`
+      `https://mordern-hotel-booking-platform-server.vercel.app/rooms?minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`
     );
     const data = await response.json();
     setRooms(data);

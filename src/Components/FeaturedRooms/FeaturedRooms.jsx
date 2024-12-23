@@ -8,7 +8,7 @@ const FeaturedRooms = () => {
   useEffect(() => {
     const fetchFeaturedRooms = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/featured-rooms');
+        const response = await axios.get('https://mordern-hotel-booking-platform-server.vercel.app/featured-rooms');
         setRooms(response.data);
       } catch (error) {
         console.error('Error fetching featured rooms:', error);

@@ -4,10 +4,12 @@ import { Context } from '../Provider/Provider';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Modal from 'react-modal';
-import Swal from 'sweetalert2'; // Import SweetAlert
-// import { Rating } from 'react-simple-star-rating'; // Import Rating package
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../UseAxiosSecure/UseAxiosSecure';
+
 
 const MyBookingsPage = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(Context);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,10 +35,8 @@ const MyBookingsPage = () => {
     // Fetch the current user's bookings (replace with actual API call)
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/myBookings?email=${user.email}`); // Updated API URL
-        if (!response.ok) throw new Error('Failed to fetch bookings');
-        const data = await response.json();
-        setBookings(data);
+        axiosSecure.get(`/myBookings?email=${user.email}`)
+        .then((response) => {setBookings(response.data);})
       } catch (err) {
         setError(err.message);
       } finally {
@@ -45,7 +45,7 @@ const MyBookingsPage = () => {
     };
 
     fetchBookings();
-  }, [user.email]);
+  }, [user.email, axiosSecure]);
 
   const handleCancelBooking = async (bookingId) => {
     // Show SweetAlert confirmation dialog
@@ -61,7 +61,7 @@ const MyBookingsPage = () => {
     if (result.isConfirmed) {
       // Cancel booking logic
       try {
-        const response = await fetch(`http://localhost:5000/bookings/${bookingId}`, {
+        const response = await fetch(`https://mordern-hotel-booking-platform-server.vercel.app/bookings/${bookingId}`, {
           method: 'DELETE',
         });
         if (!response.ok) {
@@ -84,7 +84,7 @@ const MyBookingsPage = () => {
     }
     // Update booking date logic
     try {
-      const response = await fetch(`http://localhost:5000/bookings/${bookingId}`, {
+      const response = await fetch(`https://mordern-hotel-booking-platform-server.vercel.app/bookings/${bookingId}`, {
         method: 'PUT',
         body: JSON.stringify({ date: newBookingDate.toISOString() }),
         headers: { 'Content-Type': 'application/json' },
@@ -115,7 +115,7 @@ const MyBookingsPage = () => {
         profilePic: user.photoURL, // Replace with logged-in user
       };
       try {
-        const response = await fetch(`http://localhost:5000/rooms/${roomId}/reviews`, {
+        const response = await fetch(`https://mordern-hotel-booking-platform-server.vercel.app/rooms/${roomId}/reviews`, {
           method: 'POST',
           body: JSON.stringify(newReview),
           headers: { 'Content-Type': 'application/json' },

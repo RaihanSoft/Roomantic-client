@@ -11,7 +11,7 @@ const Reviews = () => {
         // Fetch user reviews from the backend (replace with actual API call)
         const fetchReviews = async () => {
             try {
-                const response = await fetch('http://localhost:5000/reviews'); // Replace with your backend URL
+                const response = await fetch('https://mordern-hotel-booking-platform-server.vercel.app/reviews'); // Replace with your backend URL
                 if (!response.ok) throw new Error('Failed to fetch reviews');
                 const data = await response.json();
                 setReviews(data);

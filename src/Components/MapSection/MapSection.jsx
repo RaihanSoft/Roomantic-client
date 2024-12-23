@@ -10,7 +10,7 @@ const MapSection = () => {
   useEffect(() => {
     const fetchHotelLocations = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/hotel-locations');
+        const response = await axios.get('https://mordern-hotel-booking-platform-server.vercel.app/hotel-locations');
         setLocations(response.data);
       } catch (error) {
         console.error('Error fetching hotel locations:', error);

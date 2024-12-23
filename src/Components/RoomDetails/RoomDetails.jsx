@@ -20,7 +20,7 @@ const RoomDetailsPage = () => {
   useEffect(() => {
     const fetchRoomDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/rooms/${id}`); // Replace with your backend URL
+        const response = await fetch(`https://mordern-hotel-booking-platform-server.vercel.app/rooms/${id}`); // Replace with your backend URL
         if (!response.ok) throw new Error("Failed to fetch room details.");
         const data = await response.json();
         setRoom(data); // Save the room details to state
@@ -37,7 +37,7 @@ const RoomDetailsPage = () => {
   // Handle booking confirmation
   const handleBookingConfirm = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/book-room`, {
+      const response = await fetch(`https://mordern-hotel-booking-platform-server.vercel.app/book-room`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
