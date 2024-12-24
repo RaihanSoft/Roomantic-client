@@ -34,16 +34,13 @@ const useAxiosSecure = () => {
                 // Check if the error is related to authentication
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
                     console.log("Redirecting to login page");
+
                     handleLogOut()
-                        .then(() => {
-                            console.log("Logged out");
-                            navigate("/login");
-                        })
-                        .catch((logoutError) => {
-                            console.error("Error during logout:", logoutError);
-                        });
+                    navigate("/login");
+
                 }
-                return Promise.reject(error);
+                return axiosInstance;
+
             }
         );
 
@@ -58,3 +55,9 @@ const useAxiosSecure = () => {
 };
 
 export default useAxiosSecure;
+
+
+
+
+
+

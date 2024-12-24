@@ -36,7 +36,8 @@ const MyBookingsPage = () => {
     const fetchBookings = async () => {
       try {
         axiosSecure.get(`/myBookings?email=${user.email}`)
-        .then((response) => {setBookings(response.data);})
+          .then((response) => { setBookings(response.data); })
+        
       } catch (err) {
         setError(err.message);
       } finally {

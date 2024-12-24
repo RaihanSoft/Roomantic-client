@@ -64,42 +64,45 @@ export const Provider = ({ children }) => {
 
     // Observer
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) {
-                setUser({
-                    ...currentUser,
-                    photoURL: currentUser.photoURL,
-                });
-            } else {
-                setUser(null);
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            setLoading(true);
+    
+            try {
+                if (currentUser?.email) {
+                    setUser({
+                        ...currentUser,
+                        photoURL: currentUser.photoURL,
+                    });
+    
+                    const { data } = await axios.post(
+                        'https://mordern-hotel-booking-platform-server.vercel.app/jwt',
+                        { email: currentUser.email },
+                        { withCredentials: true }
+                    );
+    
+                    console.log("Login successful", data);
+                } else {
+                    setUser(null);
+    
+                    const { data } = await axios.post(
+                        'https://mordern-hotel-booking-platform-server.vercel.app/logout',
+                        {},
+                        { withCredentials: true }
+                    );
+    
+                    console.log("Logout successful", data);
+                }
+            } catch (error) {
+                console.error("Error in authentication observer:", error);
+            } finally {
+                setLoading(false);
             }
-            console.log("captured user", currentUser?.email);
-            if (currentUser?.email) {
-                const user = { email: currentUser.email };
-
-                axios.post('https://mordern-hotel-booking-platform-server.vercel.app/jwt', user, {withCredentials:true})
-                .then(res=> {
-                    console.log("login",res.data)
-                    setLoading(false);
-                })
-            }
-            else{
-                axios.post('https://mordern-hotel-booking-platform-server.vercel.app/logout', {}, {withCredentials:true})
-                .then(res=> {
-                    console.log("logout",res.data)
-                    setLoading(false);
-                })
-            }
-
-
-
-        
-
-            return () => {
-                unSubscribe();
-            };
         });
+    
+        return () => unSubscribe();
     }, []);
+    
+
 
     const authInfo = {
         handleRegister,
