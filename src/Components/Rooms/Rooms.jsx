@@ -17,6 +17,7 @@ const RoomsPage = () => {
     setRooms(data);
   };
 
+
   useEffect(() => {
     fetchRooms();
   }, []);

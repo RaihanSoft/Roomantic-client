@@ -10,6 +10,8 @@ import { Helmet } from 'react-helmet-async';
 import MyBookings from '../Components/MyBookings/MyBookings';
 import Rooms from '../Components/Rooms/Rooms';
 import RoomDetails from '../Components/RoomDetails/RoomDetails';
+import AboutUs from '../Components/AboutUs/AboutUs';
+import ContactUs from '../Components/ContactUs/ContactUs';
 
 export const router = createBrowserRouter([
     {
@@ -42,14 +44,17 @@ export const router = createBrowserRouter([
 
                 path: "/rooms/:id",
                 element: (
-                    <PrivateRoute>
+                    <>
+
                         <Helmet>
                         </Helmet>
                         <RoomDetails />
-                    </PrivateRoute>
+                    </>
+
                 ),
 
             },
+
             {
                 path: '/myBookings',
                 element: (
@@ -61,29 +66,29 @@ export const router = createBrowserRouter([
                 )
             },
             {
-                path: '/',
+                path: '/about-us',
                 element: (
                     <>
-                        <PrivateRoute>
-                            <Helmet>
-                                <title> </title>
-                                <meta name="description" content="View and manage visas you have added to the platform. Login required." />
-                            </Helmet>
-                            <MyBookings />
-                        </PrivateRoute>
+
+                        <Helmet>
+                            <title> </title>
+                            <meta name="description" content="View and manage visas you have added to the platform. Login required." />
+                        </Helmet>
+                        <AboutUs />
+
                     </>
                 )
             },
             {
-                path: '/',
+                path: '/contact-us',
                 element: (
-                    <PrivateRoute>
+                    <>
                         <Helmet>
                             <title> </title>
                             <meta name="description" content="Track your visa applications and stay updated on their status. Login required." />
                         </Helmet>
-                        <MyBookings />
-                    </PrivateRoute>
+                        <ContactUs />
+                    </>
                 )
             },
             {

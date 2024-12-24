@@ -50,7 +50,7 @@ const Navbar = () => {
                     className={({ isActive }) =>
                         isActive ? "bg-black text-white p-2 rounded-md" : "hover:underline"
                     }
-                    to="/My"
+                    to="/about-us"
                     onClick={() => setIsMenuOpen(false)}
                 >
                     About Us
@@ -62,7 +62,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                     isActive ? "bg-black text-white p-2 rounded-md" : "hover:underline"
                 }
-                to="/"
+                to="/contact-us"
                 onClick={() => setIsMenuOpen(false)}
             >
                 Contact Us

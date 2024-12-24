@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Modal from 'react-modal';
 import { Rating } from 'react-simple-star-rating';
+import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 
 const RoomDetailsPage = () => {
   const { id } = useParams(); // Room ID from the route parameter
@@ -121,6 +122,9 @@ const RoomDetailsPage = () => {
 
 
       {/* Booking Modal */}
+
+
+
       <Modal
         isOpen={isBookingModalOpen}
         onRequestClose={() => setIsBookingModalOpen(false)}
@@ -138,13 +142,19 @@ const RoomDetailsPage = () => {
             className="mt-2 p-2 border rounded-md"
           />
         </div>
-        <button
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md"
-          onClick={handleBookingConfirm}
-        >
-          Confirm Booking
-        </button>
+        <PrivateRoute>
+          <button
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md"
+            onClick={handleBookingConfirm}
+          >
+            Confirm Booking
+          </button>
+        </PrivateRoute>
       </Modal>
+
+
+
+
 
 
     </div>
