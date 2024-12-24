@@ -76,7 +76,7 @@ export const Provider = ({ children }) => {
     
                     const { data } = await axios.post(
                         'https://mordern-hotel-booking-platform-server.vercel.app/jwt',
-                        { email: currentUser.email },
+                        { email: currentUser?.email },
                         { withCredentials: true }
                     );
     
