@@ -67,7 +67,7 @@ const Login = () => {
 
     return (
         <div className="flex bg-black justify-center items-center min-h-screen ">
-            <div className="relative w-[450px] bg-gradient-to-br from-[#3c1b5e] via-[#2a1045] to-[#1a0d35] text-white shadow-2xl border border-gray-800 rounded-3xl p-10 animate__animated animate__zoomIn animate__fast">
+            <div className="relative w-[450px]  text-black shadow-2xl border border-gray-800 rounded-3xl p-10 animate__animated animate__zoomIn animate__fast">
                 {/* Welcome Header */}
                 <h2 className="text-3xl  font-bold text-center mb-4 text-[#c5a0d3] animate__animated animate__fast animate__rubberBand">
                     Welcome Back!

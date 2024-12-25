@@ -108,7 +108,7 @@ const Register = () => {
 
   return (
     <div className="flex bg-black justify-center items-center min-h-screen">
-      <div className="relative w-[450px] bg-gradient-to-br from-[#3c1b5e] via-[#2a1045] to-[#1a0d35] text-white shadow-2xl border border-gray-800 rounded-3xl p-10 animate__animated animate__zoomIn">
+      <div className="relative w-[450px] bg-black text-white shadow-2xl border border-gray-800 rounded-3xl p-10 animate__animated animate__zoomIn">
         <h2 className="text-3xl font-bold text-center mb-4 text-[#c5a0d3] animate__animated animate__wobble">Register</h2>
         <p className="text-center text-gray-300 mb-8">
           Create your account to get started

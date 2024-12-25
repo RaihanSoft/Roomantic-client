@@ -28,7 +28,7 @@ const FeaturedRooms = () => {
             <img src={room.image} alt={room.name} className="w-full h-48 object-cover" />
             <div className="p-4">
               <h3 className="text-xl font-semibold">{room.name}</h3>
-              <p className="text-gray-600">{room.description}</p>
+              <p className="text-gray-600 min-h-12 ">{room.description}</p>
               <p className="text-yellow-500">Rating: {room.reviews.length}</p>
               <Link to={`/rooms/${room._id}`}>
                 <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">

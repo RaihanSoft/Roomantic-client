@@ -2,6 +2,7 @@ import logo from "../assets/logo.webp";
 import { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Context } from "../Provider/Provider";
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const { user, handleLogOut } = useContext(Context);
@@ -77,12 +78,25 @@ const Navbar = () => {
             {/* Navbar */}
             <div className="w-11/12 mx-auto flex justify-between py-2 ">
                 {/* Logo */}
+
                 <Link to={'/'}>
                     <div className="flex items-center animate__bounceInDown">
                         <img className="w-full  h-12 " src={logo} alt="Logo" />
                     </div>
                 </Link>
-                        <div className="text-center flex items-center justify-center text-xl font-bold" >  <h2>Hotel Haven</h2></div>
+                <motion.div
+                    className="text-center flex items-center justify-center text-xl font-extrabold"
+                    initial={{ y: 0 }}
+                    animate={{ y: -5 }}  // Bouncing effect up
+                    transition={{
+                        duration: 0.5,
+                        repeat: Infinity,
+                        repeatType: "reverse",  // Reverses the animation after each loop
+                        ease: "easeInOut",
+                    }}
+                >
+                    <h2>Hotel Haven</h2>
+                </motion.div>
 
                 {/* Links for larger screens */}
                 <div className="hidden xl:flex flex-1 justify-start">{links}</div>
