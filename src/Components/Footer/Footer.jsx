@@ -1,57 +1,53 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-
 const Footer = () => {
-    return (
-        <footer className="bg-gray-800 text-white py-8 mt-12">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Website Name and Copyright */}
-                    <div className="flex flex-col justify-center">
-                        <h1 className="text-2xl font-bold">Modern Hotel Booking</h1>
-                        <p className="mt-2 text-sm">© 2024 Modern Hotel Booking. All rights reserved.</p>
-                    </div>
-
-                    {/* Contact Information */}
-                    <div>
-                        <h3 className="text-xl font-semibold">Contact Us</h3>
-                        <ul className="mt-4 space-y-2">
-                            <li>Email: <a href="mailto:info@modernhotel.com" className="text-blue-400 hover:text-blue-500">info@modernhotel.com</a></li>
-                            <li>Phone: <a href="tel:+1234567890" className="text-blue-400 hover:text-blue-500">+1 (234) 567-890</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Useful Links */}
-                    <div>
-                        <h3 className="text-xl font-semibold">Useful Links</h3>
-                        <ul className="mt-4 space-y-2">
-                            <li><a href="/about" className="text-blue-400 hover:text-blue-500">About Us</a></li>
-                            <li><a href="/privacy-policy" className="text-blue-400 hover:text-blue-500">Privacy Policy</a></li>
-                            <li><a href="/terms-of-service" className="text-blue-400 hover:text-blue-500">Terms of Service</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Social Media Links */}
-                    <div className="flex flex-col">
-                        <h3 className="text-xl font-semibold">Follow Us</h3>
-                        <div className="mt-4 flex space-x-4">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">
-                                <FaFacebook size={24} />
-                            </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-500">
-                                <FaTwitter size={24} />
-                            </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:text-pink-600">
-                                <FaInstagram size={24} />
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-800">
-                                <FaLinkedin size={24} />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <footer className=" mt-10 bg-gray-900 text-white py-8">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-wrap justify-between">
+          {/* Logo and Description */}
+          <div className="w-full md:w-1/3 mb-6 md:mb-0">
+            <h2 className="text-2xl font-bold mb-2">Modern Hotel Booking</h2>
+            <p className="text-gray-400">Experience luxury and comfort in the heart of the city. Book your stay with us today!</p>
+          </div>
+          {/* Quick Links */}
+          <div className="w-full md:w-1/3 mb-6 md:mb-0">
+            <h3 className="text-xl font-semibold mb-2">Quick Links</h3>
+            <ul>
+              <li><a href="/rooms" className="text-gray-400 hover:text-white">Rooms</a></li>
+              <li><a href="/about" className="text-gray-400 hover:text-white">About Us</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-white">Contact Us</a></li>
+              <li><a href="/faq" className="text-gray-400 hover:text-white">FAQ</a></li>
+            </ul>
+          </div>
+          {/* Contact Information */}
+          <div className="w-full md:w-1/3">
+            <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
+            <p className="text-gray-400">123 Main Street, City, Country</p>
+            <p className="text-gray-400">Phone: (123) 456-7890</p>
+            <p className="text-gray-400">Email: info@modernhotel.com</p>
+          </div>
+        </div>
+        {/* Social Media Links */}
+        <div className="flex justify-center mt-6">
+          <a href="https://facebook.com" className="text-gray-400 hover:text-white mx-2">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" className="text-gray-400 hover:text-white mx-2">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="https://instagram.com" className="text-gray-400 hover:text-white mx-2">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="https://linkedin.com" className="text-gray-400 hover:text-white mx-2">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        {/* Copyright */}
+        <div className="text-center mt-6 text-gray-400">
+          &copy; {new Date().getFullYear()} Modern Hotel Booking. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

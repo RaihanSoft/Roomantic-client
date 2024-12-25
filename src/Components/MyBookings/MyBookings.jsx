@@ -37,7 +37,7 @@ const MyBookingsPage = () => {
       try {
         axiosSecure.get(`/myBookings?email=${user.email}`)
           .then((response) => { setBookings(response.data); })
-        
+
       } catch (err) {
         setError(err.message);
       } finally {
@@ -136,141 +136,333 @@ const MyBookingsPage = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="my-bookings-page container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">My Bookings</h1>
+    // <div className="my-bookings-page w-11/12 mt-10 mx-auto">
+    //   <h1 className="text-3xl font-bold mb-6">My Bookings</h1>
+
+    //   {bookings.length === 0 ? (
+    //     <p>You have no bookings yet.</p>
+    //   ) : (
+    //     <table className="table-auto w-full border-collapse">
+    //       <thead>
+    //         <tr>
+    //           <th className="px-4 py-2 border">Image</th>
+    //           <th className="px-4 py-2 border">Name</th>
+    //           <th className="px-4 py-2 border">Price</th>
+    //           <th className="px-4 py-2 border">Booking Date</th>
+    //           <th className="px-4 py-2 border">Actions</th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         {bookings.map((booking) => (
+    //           <tr key={booking._id}>
+    //             <td className="px-4 py-2 border">
+    //               <img
+    //                 src={booking.imageUrl || 'https://via.placeholder.com/100'}
+    //                 alt={booking.roomName}
+    //                 className="w-16 h-16 object-cover"
+    //               />
+    //             </td>
+    //             <td className="px-4 py-2 border">{booking.roomName}</td>
+    //             <td className="px-4 py-2 border">${booking.price}</td>
+    //             <td className="px-4 py-2 border">{new Date(booking.date).toLocaleDateString()}</td>
+    //             <td className="px-4 py-2 border">
+    //               <button
+    //                 onClick={() => handleCancelBooking(booking._id)}
+    //                 className="bg-red-500 text-white py-2 px-4 rounded"
+    //               >
+    //                 Cancel
+    //               </button>
+    //               <button
+    //                 onClick={() => { setSelectedBooking(booking); setIsReviewModalOpen(true); }}
+    //                 className="bg-green-500 text-white py-2 px-4 rounded ml-2"
+    //               >
+    //                 Review
+    //               </button>
+    //               <button
+    //                 onClick={() => { setSelectedBooking(booking); setIsUpdateDateModalOpen(true); setNewBookingDate(new Date(booking.date)); }}
+    //                 className="bg-blue-500 text-white py-2 px-4 rounded ml-2"
+    //               >
+    //                 Update Date
+    //               </button>
+    //             </td>
+    //           </tr>
+    //         ))}
+    //       </tbody>
+    //     </table>
+    //   )}
+
+    //   {/* Cancel Booking Modal */}
+    //   <Modal isOpen={isCancelModalOpen} onRequestClose={() => setIsCancelModalOpen(false)}>
+    //     <h2 className="text-2xl font-bold mb-4">Confirm Cancellation</h2>
+    //     <p>Are you sure you want to cancel this booking?</p>
+    //     <button
+    //       onClick={() => handleCancelBooking(selectedBooking._id)}
+    //       className="bg-red-600 text-white py-2 px-4 rounded mt-4"
+    //     >
+    //       Confirm Cancel
+    //     </button>
+    //     <button
+    //       onClick={() => setIsCancelModalOpen(false)}
+    //       className="bg-gray-500 text-white py-2 px-4 rounded mt-4 ml-4"
+    //     >
+    //       Cancel
+    //     </button>
+    //   </Modal>
+
+    //   {/* Review Modal */}
+    //   <Modal isOpen={isReviewModalOpen} onRequestClose={() => setIsReviewModalOpen(false)}>
+    //     <h2 className="text-2xl font-bold mb-4">Write a Review</h2>
+    //     <div className="mb-4">
+    //       <label className="block text-gray-700 text-sm font-bold mb-2">Username</label>
+    //       <input
+    //         type="text"
+    //         value={user.displayName}
+    //         readOnly
+    //         className="w-full p-4 border border-gray-300 rounded mb-4"
+    //       />
+    //     </div>
+    //     <div className="mb-4">
+    //       <label className="block text-gray-700 text-sm font-bold mb-2">Rating (1-5)</label>
+    //       <input
+    //         type="number"
+    //         min="1"
+    //         max="5"
+    //         value={rating}
+    //         onChange={(e) => setRating(e.target.value)}
+    //         className="w-full p-4 border border-gray-300 rounded mb-4"
+    //       />
+    //     </div>
+    //     <textarea
+    //       value={reviewText}
+    //       onChange={(e) => setReviewText(e.target.value)}
+    //       placeholder="Write your review here"
+    //       className="w-full p-4 border border-gray-300 rounded mb-4"
+    //     />
+    //     <button
+    //       onClick={() => handleReviewSubmit(selectedBooking.roomId)}
+    //       className="bg-green-600 text-white py-2 px-4 rounded"
+    //     >
+    //       Submit Review
+    //     </button>
+    //     <div className="mt-4">
+    //       <label className="block text-gray-700 text-sm font-bold mb-2">Timestamp</label>
+    //       <input
+    //         type="text"
+    //         value={currentTimestamp}
+    //         readOnly
+    //         className="w-full p-4 border border-gray-300 rounded mb-4"
+    //       />
+    //     </div>
+    //   </Modal>
+
+    //   {/* Update Booking Date Modal */}
+    //   <Modal isOpen={isUpdateDateModalOpen} onRequestClose={() => setIsUpdateDateModalOpen(false)}>
+    //     <h2 className="text-2xl font-bold mb-4">Update Booking Date</h2>
+    //     <DatePicker
+    //       selected={newBookingDate}
+    //       onChange={(date) => setNewBookingDate(date)}
+    //       className="w-full p-4 border border-gray-300 rounded mb-4"
+    //     />
+    //     <button
+    //       onClick={() => handleUpdateBookingDate(selectedBooking._id)}
+    //       className="bg-blue-600 text-white py-2 px-4 rounded"
+    //     >
+    //       Update Date
+    //     </button>
+    //   </Modal>
+    // </div>
+
+    <div className="my-bookings-page w-full p-3 sm:w-11/12 mt-10 mx-auto">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">My Bookings</h1>
 
       {bookings.length === 0 ? (
         <p>You have no bookings yet.</p>
       ) : (
-        <table className="table-auto w-full border-collapse">
-          <thead>
-            <tr>
-              <th className="px-4 py-2 border">Image</th>
-              <th className="px-4 py-2 border">Name</th>
-              <th className="px-4 py-2 border">Price</th>
-              <th className="px-4 py-2 border">Booking Date</th>
-              <th className="px-4 py-2 border">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className="overflow-x-auto">
+          <table className="hidden sm:table w-full border-collapse">
+            <thead>
+              <tr>
+                <th className="px-2 py-2 border text-sm sm:text-base">Image</th>
+                <th className="px-2 py-2 border text-sm sm:text-base">Name</th>
+                <th className="px-2 py-2 border text-sm sm:text-base">Price</th>
+                <th className="px-2 py-2 border text-sm sm:text-base">Booking Date</th>
+                <th className="px-2 py-2 border text-sm sm:text-base">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bookings.map((booking) => (
+                <tr key={booking._id}>
+                  <td className="px-2 py-2 border">
+                    <img
+                      src={booking.imageUrl || 'https://via.placeholder.com/100'}
+                      alt={booking.roomName}
+                      className="w-12 h-12 sm:w-16 sm:h-16 object-cover"
+                    />
+                  </td>
+                  <td className="px-2 py-2 border text-sm sm:text-base">{booking.roomName}</td>
+                  <td className="px-2 py-2 border text-sm sm:text-base">${booking.price}</td>
+                  <td className="px-2 py-2 border text-sm sm:text-base">
+                    {new Date(booking.date).toLocaleDateString()}
+                  </td>
+                  <td className="px-2 py-2 border">
+                    {/* Flex container for actions */}
+                    <div className="flex flex-col lg:flex-row gap-2">
+                      <button
+                        onClick={() => handleCancelBooking(booking._id)}
+                        className="bg-red-500 text-white py-2 px-4 rounded text-sm sm:text-base w-full sm:w-auto"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => { setSelectedBooking(booking); setIsReviewModalOpen(true); }}
+                        className="bg-green-500 text-white py-2 px-4 rounded text-sm sm:text-base w-full sm:w-auto"
+                      >
+                        Review
+                      </button>
+                      <button
+                        onClick={() => { setSelectedBooking(booking); setIsUpdateDateModalOpen(true); setNewBookingDate(new Date(booking.date)); }}
+                        className="bg-blue-500 text-white py-2 px-4 rounded text-sm sm:text-base w-full sm:w-auto"
+                      >
+                        Update Date
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Card Layout for Small Devices */}
+          <div className="sm:hidden">
             {bookings.map((booking) => (
-              <tr key={booking._id}>
-                <td className="px-4 py-2 border">
+              <div key={booking._id} className="bg-white shadow-lg rounded-lg mb-6 p-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <img
                     src={booking.imageUrl || 'https://via.placeholder.com/100'}
                     alt={booking.roomName}
-                    className="w-16 h-16 object-cover"
+                    className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-md"
                   />
-                </td>
-                <td className="px-4 py-2 border">{booking.roomName}</td>
-                <td className="px-4 py-2 border">${booking.price}</td>
-                <td className="px-4 py-2 border">{new Date(booking.date).toLocaleDateString()}</td>
-                <td className="px-4 py-2 border">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold">{booking.roomName}</h3>
+                    <p className="text-sm text-gray-500">Price: ${booking.price}</p>
+                    <p className="text-sm text-gray-500">Booking Date: {new Date(booking.date).toLocaleDateString()}</p>
+                  </div>
+                </div>
+                {/* Actions in Card Format */}
+                <div className="flex flex-col gap-2 mt-4">
                   <button
                     onClick={() => handleCancelBooking(booking._id)}
-                    className="bg-red-500 text-white py-2 px-4 rounded"
+                    className="bg-red-500 text-white py-2 px-4 rounded w-full"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={() => { setSelectedBooking(booking); setIsReviewModalOpen(true); }}
-                    className="bg-green-500 text-white py-2 px-4 rounded ml-2"
+                    className="bg-green-500 text-white py-2 px-4 rounded w-full"
                   >
                     Review
                   </button>
                   <button
                     onClick={() => { setSelectedBooking(booking); setIsUpdateDateModalOpen(true); setNewBookingDate(new Date(booking.date)); }}
-                    className="bg-blue-500 text-white py-2 px-4 rounded ml-2"
+                    className="bg-blue-500 text-white py-2 px-4 rounded w-full"
                   >
                     Update Date
                   </button>
-                </td>
-              </tr>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       )}
 
       {/* Cancel Booking Modal */}
-      <Modal isOpen={isCancelModalOpen} onRequestClose={() => setIsCancelModalOpen(false)}>
+      <Modal isOpen={isCancelModalOpen} onRequestClose={() => setIsCancelModalOpen(false)} className="max-w-lg mx-auto">
         <h2 className="text-2xl font-bold mb-4">Confirm Cancellation</h2>
         <p>Are you sure you want to cancel this booking?</p>
         <button
           onClick={() => handleCancelBooking(selectedBooking._id)}
-          className="bg-red-600 text-white py-2 px-4 rounded mt-4"
+          className="bg-red-600 text-white py-2 px-4 rounded mt-4 w-full sm:w-auto"
         >
           Confirm Cancel
         </button>
         <button
           onClick={() => setIsCancelModalOpen(false)}
-          className="bg-gray-500 text-white py-2 px-4 rounded mt-4 ml-4"
+          className="bg-gray-500 text-white py-2 px-4 rounded mt-4 ml-4 w-full sm:w-auto"
         >
           Cancel
         </button>
       </Modal>
 
       {/* Review Modal */}
-      <Modal isOpen={isReviewModalOpen} onRequestClose={() => setIsReviewModalOpen(false)}>
-        <h2 className="text-2xl font-bold mb-4">Write a Review</h2>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Username</label>
-          <input
-            type="text"
-            value={user.displayName}
-            readOnly
-            className="w-full p-4 border border-gray-300 rounded mb-4"
+      <Modal isOpen={isReviewModalOpen} onRequestClose={() => setIsReviewModalOpen(false)} className="max-w-lg mx-auto">
+        <div className='mt-16 p-5 bg-black ' >
+          <h2 className="text-2xl font-bold text-white">Write a Review</h2>
+          <div className="">
+            <label className="block text-white text-sm font-bold mb-2">Username</label>
+            <input
+              type="text"
+              value={user.displayName}
+              readOnly
+              className="w-full p-4 border border-gray-300 rounded mb-4"
+            />
+          </div>
+          <div className="">
+            <label className="block text-white text-sm font-bold mb-2">Rating (1-5)</label>
+            <input
+              type="number"
+              min="1"
+              max="5"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+              className="w-full p-4 border border-gray-300 rounded mb-4"
+            />
+          </div>
+          <p className='text-white font-bold mb-2 '>Review</p>
+          <textarea
+            value={reviewText}
+            onChange={(e) => setReviewText(e.target.value)}
+            placeholder="Write your review here"
+            className="w-full p-4 border border-gray-300 rounded"
           />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Rating (1-5)</label>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-            className="w-full p-4 border border-gray-300 rounded mb-4"
-          />
-        </div>
-        <textarea
-          value={reviewText}
-          onChange={(e) => setReviewText(e.target.value)}
-          placeholder="Write your review here"
-          className="w-full p-4 border border-gray-300 rounded mb-4"
-        />
-        <button
-          onClick={() => handleReviewSubmit(selectedBooking.roomId)}
-          className="bg-green-600 text-white py-2 px-4 rounded"
-        >
-          Submit Review
-        </button>
-        <div className="mt-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Timestamp</label>
-          <input
-            type="text"
-            value={currentTimestamp}
-            readOnly
-            className="w-full p-4 border border-gray-300 rounded mb-4"
-          />
+          <div className="">
+            <label className="block text-white text-sm font-bold mb-2">Timestamp</label>
+            <input
+              type="text"
+              value={currentTimestamp}
+              readOnly
+              className="w-full p-4 border border-gray-300 rounded mb-4"
+            />
+            <button
+              onClick={() => handleReviewSubmit(selectedBooking.roomId)}
+              className="bg-green-600 text-white py-2 px-4 rounded w-full sm:w-auto"
+            >
+              Submit Review
+            </button>
+          </div>
         </div>
       </Modal>
 
       {/* Update Booking Date Modal */}
-      <Modal isOpen={isUpdateDateModalOpen} onRequestClose={() => setIsUpdateDateModalOpen(false)}>
-        <h2 className="text-2xl font-bold mb-4">Update Booking Date</h2>
-        <DatePicker
-          selected={newBookingDate}
-          onChange={(date) => setNewBookingDate(date)}
-          className="w-full p-4 border border-gray-300 rounded mb-4"
-        />
-        <button
-          onClick={() => handleUpdateBookingDate(selectedBooking._id)}
-          className="bg-blue-600 text-white py-2 px-4 rounded"
-        >
-          Update Date
-        </button>
+      <Modal isOpen={isUpdateDateModalOpen} onRequestClose={() => setIsUpdateDateModalOpen(false)} className="max-w-lg mx-auto">
+        <div className='mt-32 p-10 bg-black ' >
+          <h2 className="text-2xl font-bold mb-4 text-white ">Update Booking Date</h2>
+          <DatePicker
+            selected={newBookingDate}
+            onChange={(date) => setNewBookingDate(date)}
+            className="w-full p-4 border border-gray-300 rounded mb-4"
+          />
+          <br />
+          <button
+            onClick={() => handleUpdateBookingDate(selectedBooking._id)}
+            className="bg-blue-600 text-white py-2 px-4 rounded w-full sm:w-auto"
+          >
+            Update Date
+          </button>
+        </div>
       </Modal>
     </div>
+
+
   );
 };
 

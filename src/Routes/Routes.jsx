@@ -6,12 +6,12 @@ import Register from '../Register/Register';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ForgotPassword from '../Components/ForgotPassword/ForgotPassword';
 import ErrorPage from '../Components/Error/ErrorPage';
-import { Helmet } from 'react-helmet-async';
 import MyBookings from '../Components/MyBookings/MyBookings';
 import Rooms from '../Components/Rooms/Rooms';
 import RoomDetails from '../Components/RoomDetails/RoomDetails';
 import AboutUs from '../Components/AboutUs/AboutUs';
 import ContactUs from '../Components/ContactUs/ContactUs';
+import { Helmet } from 'react-helmet-async';
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +25,11 @@ export const router = createBrowserRouter([
                 element: (
                     <>
                         <Helmet>
+                            <title>Hotel Haven - Your Perfect Stay Awaits</title>
+                            <meta
+                                name="description"
+                                content="Welcome to HotelHaven. Discover luxury and comfort with exclusive offers on your next booking."
+                            />
                         </Helmet>
                         <Home />
                     </>
@@ -35,6 +40,8 @@ export const router = createBrowserRouter([
                 element: (
                     <>
                         <Helmet>
+                        <title>Explore Rooms - Hotel Haven</title>
+            
                         </Helmet>
                         <Rooms />
                     </>
@@ -47,6 +54,7 @@ export const router = createBrowserRouter([
                     <>
 
                         <Helmet>
+                        <title>Room Details - Hotel Haven</title>
                         </Helmet>
                         <RoomDetails />
                     </>
@@ -61,6 +69,7 @@ export const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <Helmet>
+                        <title>My Bookings - Hotel Haven</title>
                         </Helmet>
                         <MyBookings />
                     </PrivateRoute>
@@ -72,7 +81,7 @@ export const router = createBrowserRouter([
                     <>
 
                         <Helmet>
-                            <title> </title>
+                            <title>About Us - Hotel Haven </title>
                             <meta name="description" content="View and manage visas you have added to the platform. Login required." />
                         </Helmet>
                         <AboutUs />
@@ -85,7 +94,7 @@ export const router = createBrowserRouter([
                 element: (
                     <>
                         <Helmet>
-                            <title> </title>
+                        <title>Contact Us - Hotel Haven </title>
                             <meta name="description" content="Track your visa applications and stay updated on their status. Login required." />
                         </Helmet>
                         <ContactUs />
@@ -98,7 +107,6 @@ export const router = createBrowserRouter([
                     <>
                         <Helmet>
                             <title>Login </title>
-                            <meta name="description" content="Login to your Sunflower VISA Navigator account to access exclusive features." />
                         </Helmet>
                         <Login />
                     </>
@@ -110,7 +118,6 @@ export const router = createBrowserRouter([
                     <>
                         <Helmet>
                             <title>Forgot Password r</title>
-                            <meta name="description" content="Reset your password securely to regain access to your Sunflower VISA Navigator account." />
                         </Helmet>
                         <ForgotPassword />
                     </>
@@ -122,7 +129,6 @@ export const router = createBrowserRouter([
                     <>
                         <Helmet>
                             <title>Register </title>
-                            <meta name="description" content="Create an account with Sunflower VISA Navigator to start your visa journey today!" />
                         </Helmet>
                         <Register />
                     </>
@@ -144,3 +150,5 @@ export const router = createBrowserRouter([
         )
     },
 ]);
+
+

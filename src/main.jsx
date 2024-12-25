@@ -4,8 +4,8 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Routes/Routes'
 import { Provider } from './Components/Provider/Provider'
-import { HelmetProvider } from 'react-helmet-async'
 import { DarkModeProvider } from './DarkMood/DarkMood'
+import { HelmetProvider } from 'react-helmet-async'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -2,7 +2,6 @@ import logo from "../assets/logo.webp";
 import { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Context } from "../Provider/Provider";
-import DarkModeToggle from "../../DarkMood/DarkMood";
 
 const Navbar = () => {
     const { user, handleLogOut } = useContext(Context);
@@ -79,10 +78,11 @@ const Navbar = () => {
             <div className="w-11/12 mx-auto flex justify-between py-2 ">
                 {/* Logo */}
                 <Link to={'/'}>
-                    <div className="flex items-center animate__hinge ">
+                    <div className="flex items-center animate__bounceInDown">
                         <img className="w-full  h-12 " src={logo} alt="Logo" />
                     </div>
                 </Link>
+                        <div className="text-center flex items-center justify-center text-xl font-bold" >  <h2>Hotel Haven</h2></div>
 
                 {/* Links for larger screens */}
                 <div className="hidden xl:flex flex-1 justify-start">{links}</div>
@@ -91,9 +91,7 @@ const Navbar = () => {
 
 
                 <div className="flex items-center justify-center gap-4">
-                    <div className="pr-5 hidden sm:flex">
-                        {<DarkModeToggle />}
-                    </div>
+
 
                     {/* User Section */}
 
@@ -140,7 +138,7 @@ const Navbar = () => {
                     {/* Hamburger Menu */}
                     <div className="xl:hidden relative">
                         <button
-                            className="text-black focus:outline-none"
+                            className="text-black focus:outline-none  "
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
                             <svg
@@ -161,10 +159,7 @@ const Navbar = () => {
 
                         {/* Dropdown Menu for small screens */}
                         {isMenuOpen && (
-                            <div className="absolute right-0 mt-2 bg-white border rounded-lg shadow-lg z-10 p-4">
-                                <div className="pr-5 sm:hidden flex">
-                                    {<DarkModeToggle />}
-                                </div>
+                            <div className="absolute right-0  mt-2 bg-white border rounded-lg shadow-lg z-10 p-4">
                                 {links}
 
                             </div>

@@ -1,6 +1,6 @@
 const AboutUs = () => {
   return (
-    <section className="bg-gray-50 py-16 px-4">
+    <section className="bg-gray-50 py-16 px-4 w-11/12 mx-auto ">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold text-gray-900 mb-8">About Us</h2>
         <p className="text-lg text-gray-600 mb-6">
@@ -16,8 +16,9 @@ const AboutUs = () => {
           preferences and budget.
         </p>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="text-left">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-12">
+          {/* Card for Our Mission */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h3>
             <p className="text-lg text-gray-600">
               Our mission is simple: to make hotel booking as easy, quick, and reliable as possible. Whether you're traveling
@@ -26,7 +27,8 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="text-left">
+          {/* Card for Why Choose Us */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Us?</h3>
             <ul className="list-disc pl-6 text-lg text-gray-600">
               <li>Wide Selection: From luxurious resorts to cozy budget hotels, we offer a diverse selection of accommodations.</li>
@@ -45,7 +47,8 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="mt-8">
+        {/* Card for Contact Us */}
+        <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
           <h4 className="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h4>
           <p className="text-lg text-gray-600">
             For inquiries, feedback, or assistance, don&apos;t hesitate to reach out to us at{" "}
