@@ -117,14 +117,3 @@ export default AnimatedSlider;
 
 
 
-// <a href="https://ibb.co.com/7W1jgGf"><img src="https://i.ibb.co.com/QNKp86g/deluxe-harbour-web-1.jpg" alt="deluxe-harbour-web-1" border="0"></a>
-// <a href="https://ibb.co.com/GHF6FFZ"><img src="https://i.ibb.co.com/vXDFDDN/SOCB9C1.jpg" alt="SOCB9C1" border="0"></a>
-// <a href="https://ibb.co.com/BcGBj6m"><img src="https://i.ibb.co.com/wB74CQT/Sofitel-Dubai-Wafi-Luxury-Room-Bedroom-Skyline-View-Image2-WEB.jpg" 
-// 
-// alt="Sofitel-Dubai-Wafi-Luxury-Room-Bedroom-Skyline-View-Image2-WEB" border="0"></a>
-// <a href="https://ibb.co.com/x2pp1Ny"><img src="https://i.ibb.co.com/ZfnnB03/523987026.jpg" alt="523987026" border="0"></a>
-// <a href="https://ibb.co.com/mFrbwdM"><img src="https://i.ibb.co.com/M5yZ4K3/525171277.jpg" alt="525171277" border="0"></a>
-// <a href="https://ibb.co.com/FBzyhcF"><img src="https://i.ibb.co.com/64FTyGk/523987038.jpg" alt="523987038" border="0"></a>
-// <a href="https://ibb.co.com/Vprq6Xr"><img src="https://i.ibb.co.com/vvgj92g/dacsi-twinpodium-guestroom-3231-hor-wide.jpg" alt="dacsi-twinpodium-guestroom-3231-hor-wide" border="0"></a>
-// <a href="https://ibb.co.com/0cX04WF"><img src="https://i.ibb.co.com/f2S36Kn/pexels-pixabay-262048.jpg" alt="pexels-pixabay-262048" border="0"></a>
-// <a href="https://ibb.co.com/6H1qrGF"><img src="https://i.ibb.co.com/48Y0KCp/modern-studio-apartment-design-with-bedroom-living-space.jpg" alt="modern-studio-apartment-design-with-bedroom-living-space" border="0"></a>

@@ -5,6 +5,7 @@ import FeaturesSection from '../../FeaturesSection/FeaturesSection '
 import MapSection from '../../MapSection/MapSection'
 import Reviews from '../../Reviews/Reviews'
 import Offers from '../../Special Offers and Promotions/Offers'
+import Achievements from '../../Achievements/Achievements'
 
 const Home = () => {
   return (
@@ -15,9 +16,10 @@ const Home = () => {
       <MapSection />
       <FeaturedRooms />
       <Reviews />
+      <Achievements />
       <FeaturesSection />
-
       <Offers />
+
 
 
 
