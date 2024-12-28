@@ -34,7 +34,7 @@ const Reviews = () => {
                 <p className='text-center lg:w-2/3 mx-auto  ' >We value the feedback of our users and strive to provide exceptional service. Read through some of the reviews from our satisfied clients to see why we’re trusted for excellence.</p>
             </div>
             {inView && (
-                <Carousel showThumbs={false} showStatus={false} infiniteLoop autoPlay interval={2000} stopOnHover={false} >
+                <Carousel showThumbs={false} showStatus={false} infiniteLoop autoPlay interval={2500} stopOnHover={false} >
                     {reviews.map((review, index) => (
                         <div
                             key={index}
