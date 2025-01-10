@@ -8,6 +8,7 @@ const Navbar = () => {
     const { user, handleLogOut } = useContext(Context);
     const [showWelcome, setShowWelcome] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    console.log(user)
     console.log(showWelcome)
     useEffect(() => {
         if (user && user.email) {
@@ -35,7 +36,7 @@ const Navbar = () => {
             >
                 Rooms
             </NavLink>
-            <NavLink
+            {user && <NavLink
                 className={({ isActive }) =>
                     isActive ? "bg-black text-white p-1 px-2  rounded-md" : "hover:underline"
                 }
@@ -43,7 +44,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
             >
                 My Bookings
-            </NavLink>
+            </NavLink>}
 
             {
                 <NavLink
@@ -118,6 +119,7 @@ const Navbar = () => {
                                     src={user.photoURL}
                                     alt="User"
                                 />
+                              {  console.log(user.photoURL)}
 
                                 {/* Display Name and Logout Button - both visible on hover */}
                                 <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-28 bg-white border border-gray-300 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-2">
