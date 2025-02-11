@@ -124,7 +124,7 @@ const RoomsPage = () => {
             <div className="p-4">
               <h3 className="text-xl font-semibold text-gray-800">{room.name}</h3>
               <p className="text min-h-12 ">{room.description}</p>
-              <p className="mt-2 text-lg font-semibold text-gray-900">
+              <p className="mt-2 text-lg font-semibold text-blue-600 ">
                 Price: ${room.price}
               </p>
               <p className="mt-2 text-sm text-gray-500">
