@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="text-md flex-col xl:flex-row flex items-center justify-center ml-14 font-medium space-y-2 lg:space-x-8 lg:space-y-0">
             <NavLink
                 className={({ isActive }) =>
-                    isActive ? "bg-black text-white p-1 px-2  rounded-md" : "hover:underline"
+                    isActive ? "bg-blue-600 text-white p-1 px-2  rounded-md" : "hover:underline"
                 }
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
@@ -29,7 +29,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
-                    isActive ? "bg-black text-white p-1 px-2  rounded-md" : "hover:underline"
+                    isActive ? "bg-blue-600 text-white p-1 px-2  rounded-md" : "hover:underline"
                 }
                 to="/Rooms"
                 onClick={() => setIsMenuOpen(false)}
@@ -38,7 +38,7 @@ const Navbar = () => {
             </NavLink>
             {user && <NavLink
                 className={({ isActive }) =>
-                    isActive ? "bg-black text-white p-1 px-2  rounded-md" : "hover:underline"
+                    isActive ? "bg-blue-600 text-white p-1 px-2  rounded-md" : "hover:underline"
                 }
                 to="/myBookings"
                 onClick={() => setIsMenuOpen(false)}
@@ -49,7 +49,7 @@ const Navbar = () => {
             {
                 <NavLink
                     className={({ isActive }) =>
-                        isActive ? "bg-black text-white p-1 px-2  rounded-md" : "hover:underline"
+                        isActive ? "bg-blue-600 text-white p-1 px-2  rounded-md" : "hover:underline"
                     }
                     to="/about-us"
                     onClick={() => setIsMenuOpen(false)}
@@ -61,7 +61,7 @@ const Navbar = () => {
             }
             <NavLink
                 className={({ isActive }) =>
-                    isActive ? "bg-black text-white p-1 px-2  rounded-md" : "hover:underline"
+                    isActive ? "bg-blue-600 text-white p-1 px-2  rounded-md" : "hover:underline"
                 }
                 to="/contact-us"
                 onClick={() => setIsMenuOpen(false)}
@@ -74,7 +74,7 @@ const Navbar = () => {
     );
 
     return (
-        <header className="sticky top-0 z-[2000] text-black  bg-blue-300 shadow-lg">
+        <header className="sticky top-0 z-[2000] text-black  bg-blue-100 shadow-lg">
 
             {/* Navbar */}
             <div className="w-11/12 mx-auto flex justify-between py-2 ">
