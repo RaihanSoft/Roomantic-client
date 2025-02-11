@@ -2,7 +2,7 @@ import logo from "../assets/logo.webp";
 import { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Context } from "../Provider/Provider";
-import { motion } from 'framer-motion';
+import DarkMood from '../../DarkMood/DarkMood'
 
 const Navbar = () => {
     const { user, handleLogOut } = useContext(Context);
@@ -85,19 +85,11 @@ const Navbar = () => {
                         <img className="w-full  h-12 " src={logo} alt="Logo" />
                     </div>
                 </Link>
-                <motion.div
-                    className="text-center flex items-center justify-center text-xl font-extrabold"
-                    initial={{ y: 0 }}
-                    animate={{ y: -5 }}  // Bouncing effect up
-                    transition={{
-                        duration: 0.5,
-                        repeat: Infinity,
-                        repeatType: "reverse",  // Reverses the animation after each loop
-                        ease: "easeInOut",
-                    }}
-                >
-                    <h2>Hotel Haven</h2>
-                </motion.div>
+
+                <div className="flex items-center" >
+                    <h2 className="font-bold">Hotel Haven</h2>
+                </div>
+
 
                 {/* Links for larger screens */}
                 <div className="hidden xl:flex flex-1 justify-start">{links}</div>
@@ -110,6 +102,8 @@ const Navbar = () => {
 
                     {/* User Section */}
 
+                   <div> <DarkMood /></div>
+
                     <div className="flex items-center space-x-4">
                         {user && user.email ? (
                             <div className="relative group flex items-center space-x-3">
@@ -119,7 +113,7 @@ const Navbar = () => {
                                     src={user.photoURL}
                                     alt="User"
                                 />
-                              {  console.log(user.photoURL)}
+                                {console.log(user.photoURL)}
 
                                 {/* Display Name and Logout Button - both visible on hover */}
                                 <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-28 bg-white border border-gray-300 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center p-2">

@@ -13,9 +13,9 @@ const Home = () => {
 
 
       <Banner />
-      <MapSection />
       <FeaturedRooms />
       <Reviews />
+      <MapSection />
       <Achievements />
       <FeaturesSection />
       <Offers />
