@@ -102,7 +102,7 @@ const Navbar = () => {
 
                     {/* User Section */}
 
-                   <div> <DarkMood /></div>
+                    <div> <DarkMood /></div>
 
                     <div className="flex items-center space-x-4">
                         {user && user.email ? (
@@ -169,11 +169,69 @@ const Navbar = () => {
 
                         {/* Dropdown Menu for small screens */}
                         {isMenuOpen && (
-                            <div className="absolute right-0  mt-2 bg-white border rounded-lg shadow-lg z-10 p-4">
-                                {links}
-
+                            <div className="absolute right-0 mt-2 bg-white border rounded-lg shadow-lg z-10 p-4 w-48">
+                                <div className="flex flex-col ">
+                                    <NavLink
+                                        to="/"
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "bg-blue-600 text-white p-2 rounded-md"
+                                                : "text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                                        }
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Home
+                                    </NavLink>
+                                    <NavLink
+                                        to="/Rooms"
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "bg-blue-600 text-white p-2 rounded-md"
+                                                : "text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                                        }
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Rooms
+                                    </NavLink>
+                                    {user && (
+                                        <NavLink
+                                            to="/myBookings"
+                                            className={({ isActive }) =>
+                                                isActive
+                                                    ? "bg-blue-600 text-white p-2 rounded-md"
+                                                    : "text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                                            }
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            My Bookings
+                                        </NavLink>
+                                    )}
+                                    <NavLink
+                                        to="/about-us"
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "bg-blue-600 text-white p-2 rounded-md"
+                                                : "text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                                        }
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        About Us
+                                    </NavLink>
+                                    <NavLink
+                                        to="/contact-us"
+                                        className={({ isActive }) =>
+                                            isActive
+                                                ? "bg-blue-600 text-white p-2 rounded-md"
+                                                : "text-gray-700 hover:bg-gray-100 p-2 rounded-md"
+                                        }
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        Contact Us
+                                    </NavLink>
+                                </div>
                             </div>
                         )}
+
                     </div>
                 </div>
 
