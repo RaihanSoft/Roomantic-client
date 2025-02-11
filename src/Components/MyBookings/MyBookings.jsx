@@ -10,6 +10,7 @@ import useAxiosSecure from '../../UseAxiosSecure/UseAxiosSecure';
 
 const MyBookingsPage = () => {
   const axiosSecure = useAxiosSecure();
+
   const { user } = useContext(Context);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -137,14 +138,17 @@ const MyBookingsPage = () => {
 
   return (
 
-  
+
 
 
     <div className="my-bookings-page w-full p-3 sm:w-11/12 mt-10 mx-auto">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6">My Bookings</h1>
 
       {bookings.length === 0 ? (
-        <p>You have no bookings yet.</p>
+        <div className="flex justify-center items-center min-h-screen">
+          <div className="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-green-500 border-green-500 border-t-transparent"></div>
+          <p className="ml-4 text-xl font-semibold ">Loading rooms...</p>
+        </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="hidden sm:table w-full border-collapse">

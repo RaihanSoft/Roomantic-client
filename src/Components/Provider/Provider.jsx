@@ -114,7 +114,8 @@ export const Provider = ({ children }) => {
         setUser,
         loading,
         visa,
-        setVisa
+        setVisa,
+        setLoading
     };
 
     return (
