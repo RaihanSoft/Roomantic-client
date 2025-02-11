@@ -86,12 +86,12 @@ const RoomDetailsPage = () => {
         />
         <div className="room-details w-full md:w-1/2">
           <h1 className="text-3xl font-bold mb-4">{room.name}</h1>
-          <p className="text-lg text-gray-600 mb-4">{room.description}</p>
+          <p className="text-lg text mb-4">{room.description}</p>
           <p className="text-xl font-semibold text-blue-600 mb-4">Price: ${room.price}</p>
-          <p className="text-md text-gray-600 mb-4">
+          <p className="text-md text mb-4">
             <strong>Availability:</strong> {room.availability ? "Available" : "Not Available"}
           </p>
-          <ul className="text-gray-700">
+          <ul className="">
             <li><strong>Category:</strong> {room.category}</li>
             <li><strong>Location:</strong> {room.location.name}</li>
             <li><strong>Max Guests:</strong> {room.maxGuests}</li>
@@ -120,7 +120,7 @@ const RoomDetailsPage = () => {
 
                 <div>
                   <p className="text-lg font-semibold">{review.username}</p>
-                  <p className="text-gray-600">
+                  <p className="text">
                     <strong>Rating:</strong> {review.rating} / 5
                   </p>
                   <Rating name="half-rating-read" defaultValue={review.rating} precision={0.5} readOnly />
@@ -128,12 +128,12 @@ const RoomDetailsPage = () => {
 
                 </div>
               </div>
-              <p className="text-gray-600 mt-5 ">{review.comment}</p>
-              <p className="text-sm text-gray-500">{new Date(review.timestamp).toLocaleString()}</p>
+              <p className="text mt-5 ">{review.comment}</p>
+              <p className="text-sm">{new Date(review.timestamp).toLocaleString()}</p>
             </div>
           ))
         ) : (
-          <p className="text-gray-600">No reviews available for this room yet. Be the first to leave a review!</p>
+          <p className="text">No reviews available for this room yet. Be the first to leave a review!</p>
         )}
       </div>
 

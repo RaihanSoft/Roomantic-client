@@ -53,7 +53,7 @@ const Reviews = () => {
                             {/* Star Rating */}
                             <Rating name="half-rating-read" defaultValue={review.rating} precision={0.5} readOnly />
                             {/* Review Text */}
-                            <p className="text-gray-600 italic text-center mt-4 mb-6 px-4">
+                            <p className="text italic text-center mt-4 mb-6 px-4">
                                 <span className="text-4xl text-gold font-bold">“</span>
                                 {review.comment}
                                 <span className="text-4xl text-gold font-bold">”</span>

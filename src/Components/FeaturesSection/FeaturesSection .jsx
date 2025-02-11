@@ -17,7 +17,7 @@ const FeaturesSection = () => {
         <div className="border-2 p-6 rounded-lg shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-500">
           <div className="text-4xl mb-4 text-gold">🛏️</div>
           <h3 className="text-xl font-semibold mb-2">Luxurious Rooms</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text dark:text-gray-400">
             Experience the comfort and elegance of our well-appointed rooms.
           </p>
         </div>
@@ -26,7 +26,7 @@ const FeaturesSection = () => {
         <div className="border-2 p-6 rounded-lg shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-500">
           <div className="text-4xl mb-4 text-gold">🍽️</div>
           <h3 className="text-xl font-semibold mb-2">Gourmet Dining</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text dark:text-gray-400">
             Savor exquisite dishes prepared by our renowned chefs.
           </p>
         </div>
@@ -35,7 +35,7 @@ const FeaturesSection = () => {
         <div className="border-2 p-6 rounded-lg shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-500">
           <div className="text-4xl mb-4 text-gold">💆‍♀️</div>
           <h3 className="text-xl font-semibold mb-2">Spa and Wellness</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text dark:text-gray-400">
             Indulge in a variety of treatments at our luxurious spa.
           </p>
         </div>
@@ -44,7 +44,7 @@ const FeaturesSection = () => {
         <div className="border-2 p-6 rounded-lg shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-500">
           <div className="text-4xl mb-4 text-gold">🏋️‍♂️</div>
           <h3 className="text-xl font-semibold mb-2">Fitness Center</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text dark:text-gray-400">
             Keep up with your fitness routine in our modern gym.
           </p>
         </div>
@@ -53,7 +53,7 @@ const FeaturesSection = () => {
         <div className="border-2 p-6 rounded-lg shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-500">
           <div className="text-4xl mb-4 text-gold">🎉</div>
           <h3 className="text-xl font-semibold mb-2">Event Spaces</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text dark:text-gray-400">
             Perfect venues for weddings, conferences, and celebrations.
           </p>
         </div>
@@ -62,7 +62,7 @@ const FeaturesSection = () => {
         <div className="border-2 p-6 rounded-lg shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-500">
           <div className="text-4xl mb-4 text-gold">🌐</div>
           <h3 className="text-xl font-semibold mb-2">High-Speed Wi-Fi</h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text dark:text-gray-400">
             Stay connected with our complimentary high-speed internet.
           </p>
         </div>

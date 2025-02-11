@@ -16,7 +16,7 @@ const ErrorPage = () => {
       <h2 className="text-2xl font-semibold text-gray-700 mb-2">
         Page Not Found
       </h2>
-      <p className="text-gray-600 mb-6">
+      <p className="text mb-6">
         Oops! The page you&apos;re looking for doesn&apos;t exist.
       </p>
       <button

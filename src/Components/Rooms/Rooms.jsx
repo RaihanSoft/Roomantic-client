@@ -123,7 +123,7 @@ const RoomsPage = () => {
             />
             <div className="p-4">
               <h3 className="text-xl font-semibold text-gray-800">{room.name}</h3>
-              <p className="text-gray-600 min-h-12 ">{room.description}</p>
+              <p className="text min-h-12 ">{room.description}</p>
               <p className="mt-2 text-lg font-semibold text-gray-900">
                 Price: ${room.price}
               </p>
