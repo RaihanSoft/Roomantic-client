@@ -56,7 +56,7 @@ const RoomsPage = () => {
       <div className="dropdown p-4 relative flex justify-center" ref={dropdownRef}>
         <button
           onClick={() => setShowFilter((prev) => !prev)}
-          className="w-full max-w-md text-left bg-white border p-3 rounded-lg shadow-lg font-semibold text-lg flex justify-between items-center"
+          className="w-full max-w-md text-left bg-white text-black border p-3 rounded-lg shadow-lg font-semibold text-lg flex justify-between items-center"
         >
          Price Range
           <span>{showFilter ? "▲" : "▼"}</span>
@@ -67,9 +67,9 @@ const RoomsPage = () => {
             className=" lg:w-1/3  filter-section absolute left-1/2 transform -translate-x-1/2 top-full mt-2 p-6 bg-white rounded-lg shadow-lg z-50"
             style={{ zIndex: 1000 }}
           >
-            <h2 className="text-xl font-bold mb-4">Price Range</h2>
+            <h2 className="text-xl text-black font-bold mb-4">Price Range</h2>
             <div className="text-center mb-4">
-              <p className="text-lg font-semibold">
+              <p className="text-lg font-semibold text-black">
               <span className="border-2 p-1" >  ${priceRange[0].toFixed(2)}</span> - <span className="border-2 p-1" >${priceRange[1].toFixed(2)}</span>
               </p>
             </div>
@@ -122,12 +122,12 @@ const RoomsPage = () => {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-gray-800">{room.name}</h3>
+              <h3 className="text-xl font-semibold ">{room.name}</h3>
               <p className="text min-h-12 ">{room.description}</p>
               <p className="mt-2 text-lg font-semibold text-blue-600 ">
                 Price: ${room.price}
               </p>
-              <p className="mt-2 text-sm text-gray-500">
+              <p className="mt-2 text-sm text-gray-300">
                 Reviews: {room.reviews.length}
               </p>
             </div>
