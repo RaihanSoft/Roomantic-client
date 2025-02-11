@@ -7,43 +7,53 @@ import { Context } from "../Provider/Provider";
 const RoomsPage = () => {
   const [rooms, setRooms] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 5000]); // Initial range [min, max]
+  const [sortOption, setSortOption] = useState(""); // State for sorting
   const [showFilter, setShowFilter] = useState(false); // For toggling the dropdown
-  // const [loading, setLoading] = useState(true);
-   const { loading, setLoading } = useContext(Context);
+  const { loading, setLoading } = useContext(Context);
   const dropdownRef = useRef(null); // Reference to the dropdown
 
   const fetchRooms = async () => {
-    setLoading(true); // Start loading
+    setLoading(true);
     try {
-      const response = await fetch(
-        `https://mordern-hotel-booking-platform-server.vercel.app/rooms?minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`
-      );
+      const url = `https://mordern-hotel-booking-platform-server.vercel.app/rooms?minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}${
+        sortOption ? `&sort=${sortOption}` : ""
+      }`;
+      console.log("Fetching from URL:", url); // Debugging URL
+
+      const response = await fetch(url);
       const data = await response.json();
-      setRooms(data);
+      
+      // If backend doesn't support sorting, sort on frontend
+      const sortedRooms = [...data].sort((a, b) => {
+        if (sortOption === "asc") return a.price - b.price;
+        if (sortOption === "desc") return b.price - a.price;
+        return 0;
+      });
+
+      setRooms(sortedRooms);
     } catch (error) {
       console.error("Error fetching rooms:", error);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchRooms();
-  }, []);
+  }, [priceRange, sortOption]); // Fetch rooms whenever price range or sorting changes
 
-  const handlePriceChange = (range) => {
-    setPriceRange(range);
-  };
+  const handlePriceChange = (range) => setPriceRange(range);
 
   const applyFilters = () => {
     fetchRooms();
-    setShowFilter(false); // Close dropdown after applying filters
+    setShowFilter(false);
   };
 
   const clearFilters = () => {
     setPriceRange([0, 5000]);
+    setSortOption("");
     fetchRooms();
-    setShowFilter(false); // Close dropdown after clearing filters
+    setShowFilter(false);
   };
 
   // Close dropdown when clicking outside
@@ -60,6 +70,12 @@ const RoomsPage = () => {
     };
   }, []);
 
+  const handleSortChange = (event) => {
+    const value = event.target.value;
+    console.log("Selected sort option:", value); // Debugging
+    setSortOption(value);
+  };
+
   return (
     <div className="rooms-page relative">
       <div className="dropdown p-4 relative flex justify-center" ref={dropdownRef}>
@@ -67,8 +83,7 @@ const RoomsPage = () => {
           onClick={() => setShowFilter((prev) => !prev)}
           className="w-full max-w-md text-left bg-white text-black border p-3 rounded-lg shadow-lg font-semibold text-lg flex justify-between items-center"
         >
-          Price Range
-          <span>{showFilter ? "▲" : "▼"}</span>
+          Price Range <span>{showFilter ? "▲" : "▼"}</span>
         </button>
 
         {showFilter && (
@@ -118,35 +133,54 @@ const RoomsPage = () => {
         )}
       </div>
 
+      {/* Sorting Dropdown */}
+      <div className="flex justify-center">
+        <select
+          value={sortOption}
+          onChange={handleSortChange}
+          className="bg-white text-black border p-1 rounded-lg shadow-lg font-semibold"
+        >
+          <option value="">Sort By</option>
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      {/* Rooms List */}
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
           <div className="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-green-500 border-green-500 border-t-transparent"></div>
-          <p className="ml-4 text-xl font-semibold ">Loading rooms...</p>
+          <p className="ml-4 text-xl font-semibold">Loading rooms...</p>
         </div>
       ) : (
         <div className="rooms-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-          {rooms.map((room) => (
-            <Link
-              room={room}
-              key={room._id}
-              to={`/rooms/${room._id}`}
-              className="room-card border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
-            >
-              <img
-                src={room.image}
-                alt={room.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold">{room.name}</h3>
-                <p className="min-h-12">{room.description}</p>
-                <p className="mt-2 text-lg font-semibold text-blue-600">
-                  Price: ${room.price}
-                </p>
-                <p className="mt-2 text-sm">Reviews: {room.reviews.length}</p>
-              </div>
-            </Link>
-          ))}
+          {rooms.length > 0 ? (
+            rooms.map((room) => (
+              <Link
+                key={room._id}
+                to={`/rooms/${room._id}`}
+                className="room-card border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
+              >
+                <img
+                  src={room.image}
+                  alt={room.name}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold">{room.name}</h3>
+                  <p className="min-h-12">{room.description}</p>
+                  <p className="mt-2 text-lg font-semibold text-blue-600">
+                    Price: ${room.price}
+                  </p>
+                  <p className="mt-2 text-sm">Reviews: {room.reviews.length}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p className="text-center text-xl font-semibold text-gray-600">
+              No rooms available in this price range.
+            </p>
+          )}
         </div>
       )}
     </div>

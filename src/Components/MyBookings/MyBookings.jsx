@@ -147,7 +147,7 @@ const MyBookingsPage = () => {
       {bookings.length === 0 ? (
         <div className="flex justify-center items-center min-h-screen">
           <div className="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-green-500 border-green-500 border-t-transparent"></div>
-          <p className="ml-4 text-xl font-semibold ">Loading rooms...</p>
+          <p className="ml-4 text-xl font-semibold ">Loading Bookings...</p>
         </div>
       ) : (
         <div className="overflow-x-auto">
