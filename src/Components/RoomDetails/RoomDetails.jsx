@@ -72,7 +72,10 @@ const RoomDetailsPage = () => {
 
 
   // Display loading spinner or error message
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex justify-center items-center min-h-screen">
+    <div className="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-green-500 border-green-500 border-t-transparent"></div>
+    <p className="ml-4 text-xl font-semibold ">Loading Details...</p>
+  </div>;
   if (error) return <div>Error: {error}</div>;
 
   return (

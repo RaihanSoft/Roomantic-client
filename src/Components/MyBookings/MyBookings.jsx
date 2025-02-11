@@ -133,7 +133,11 @@ const MyBookingsPage = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return
+  <div className="flex justify-center items-center min-h-screen">
+    <div className="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-green-500 border-green-500 border-t-transparent"></div>
+    <p className="ml-4 text-xl font-semibold ">Loading Bookings...</p>
+  </div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
@@ -145,10 +149,7 @@ const MyBookingsPage = () => {
       <h1 className="text-2xl sm:text-3xl font-bold mb-6">My Bookings</h1>
 
       {bookings.length === 0 ? (
-        <div className="flex justify-center items-center min-h-screen">
-          <div className="spinner-border animate-spin inline-block w-12 h-12 border-4 rounded-full text-green-500 border-green-500 border-t-transparent"></div>
-          <p className="ml-4 text-xl font-semibold ">Loading Bookings...</p>
-        </div>
+        <p>You haven't made a booking yet.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="hidden sm:table w-full border-collapse">
